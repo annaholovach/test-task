@@ -4,7 +4,7 @@ const app = new Koa();
 const bodyParser = require('koa-bodyparser');
 const router = require('./routes/router')
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 app.use(bodyParser());
 app.use(router.routes());

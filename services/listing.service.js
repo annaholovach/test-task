@@ -1,21 +1,5 @@
 const {errorMessages, successMessages} = require('../data/messages')
-const stats = [
-    {
-        autoId: 1,
-        phoneViews: 1,
-        listingViews: 0
-    },
-    {
-        autoId: 2,
-        phoneViews: 2323,
-        listingViews: 2332
-    },
-    {
-        autoId: 3,
-        phoneViews: 2526,
-        listingViews: 22
-    },
-];
+const stats = require('../stats.json')
 
 class ListingService {
     async getAllViewsById (autoId) {
