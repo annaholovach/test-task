@@ -27,54 +27,6 @@ class ListingController {
         }
     }
 
-    async getListingViewsById (ctx) {
-        try {
-            const {autoId} = ctx.params
-            const changeType = Number(autoId)
-            if (isNaN(changeType)) {
-                ctx.status = 400;
-                ctx.body = { message: errorMessages.validationError };
-                return;
-            }
-            const data = await listingService.getListingViewsById(changeType)
-            if (!data.status) {
-                ctx.status = 404;
-                ctx.body = { message: data?.message};
-                return;
-            }
-            ctx.body = data.statistics
-        } catch (e) {
-            console.log(e)
-            ctx.status = 500;
-            ctx.body = { message: errorMessages.somethingWentWrong };
-            return;
-        }
-    }
-
-    async getPhoneViewsById (ctx) {
-        try {
-            const {autoId} = ctx.params
-            const changeType = Number(autoId)
-            if (isNaN(changeType)) {
-                ctx.status = 400;
-                ctx.body = { message: errorMessages.validationError };
-                return;
-            }
-            const data = await listingService.getPhoneViewsById(changeType)
-            if (!data.status) {
-                ctx.status = 404;
-                ctx.body = { message: data?.message};
-                return;
-            }
-            ctx.body = data.statistics
-        } catch (e) {
-            console.log(e)
-            ctx.status = 500;
-            ctx.body = { message: errorMessages.somethingWentWrong };
-            return;
-        }
-    }
-
     async addListingView (ctx) {
         try {
             const {autoId} = ctx.request.body
