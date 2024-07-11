@@ -10,8 +10,8 @@ function rand_range() {
 echo '[' > stats.json
 for (( i=1; i<=10; i++ )); do
     autoId=$i
-    phoneViews=$(rand_range 1 50)
-    listingViews=$(rand_range 1 50)
+    phoneViews=$(rand_range 0 50)
+    listingViews=$(rand_range 0 50)
     
     if [[ $i -eq 10 ]]; then
         echo "{\"autoId\": $autoId, \"phoneViews\": $phoneViews, \"listingViews\": $listingViews}" >> stats.json

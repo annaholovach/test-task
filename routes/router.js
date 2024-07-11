@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const router = new Router();
+const router = new Router({ prefix: '/statistics' });
 
 const listingController = require("../controllers/listing.controller");
 
